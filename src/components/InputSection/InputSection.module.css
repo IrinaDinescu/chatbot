@@ -1,0 +1,44 @@
+.bottom-container {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f1f1f1;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #ccc;
+  z-index: 1000;
+}
+
+.input-area {
+  width: 80%;
+  max-width: 500px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+  outline: none;
+  color: var(--text-message-color);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.send-button {
+  background-color: var(--lseg-blue);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.send-button:disabled {
+  background-color: #cccccc; /* Greyed-out when disabled */
+  cursor: not-allowed;
+}
+
+.send-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
