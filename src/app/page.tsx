@@ -1,13 +1,14 @@
 'use client';
 
 import { ChatBot } from '@/components/ChatBot';
-import Navbar from '@/components/Navbar';
+import { ChatProvider } from '@/context/ChatContext';
 
 export default function Home() {
   return (
     <div>
-      {/* <Navbar /> */}
-      <ChatBot />
+      <ChatProvider>
+        <ChatBot />
+      </ChatProvider>
     </div>
   );
 }

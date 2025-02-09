@@ -11,9 +11,11 @@ export const BubblexTextArea = ({
       {messages.map((message, index) => (
         <BubbleMessage
           key={index}
+          id={message.id}
           content={message.content}
           sender={message.sender}
           options={message.options}
+          optionType={message.optionType}
         />
       ))}
     </div>

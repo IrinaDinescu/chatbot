@@ -1,15 +1,11 @@
-import {
-  Stock,
-  StockExchange,
-  StockExchangeCode,
-  StockExchangeData,
-} from '@/types/stocks';
+import { Stock, StockExchange, StockExchangeData } from '@/types/stocks';
 import { readStockData } from '@/utils/stocks';
 
-export async function GET(
-  request: Request,
-  { params }: { params: { stockId: string; exchangeId: StockExchangeCode } }
-) {
+type getParams = {
+  params: Promise<{ stockId: string; exchangeId: string }>;
+};
+
+export async function GET(request: Request, { params }: getParams) {
   try {
     const stockData: StockExchangeData = await readStockData();
 
@@ -30,19 +26,19 @@ export async function GET(
     }
 
     const { topStocks } = stockExchange;
-    const price = topStocks.find((stock: Stock) => {
+    const stock = topStocks.find((stock: Stock) => {
       return stock.code === stockId;
     });
 
-    if (!price) {
-      throw new Error(`No stock found with this price.`);
+    if (!stock) {
+      throw new Error(`No stock found with this code.`);
     }
 
-    return new Response(JSON.stringify({ price: price }), {
+    return new Response(JSON.stringify({ stock: stock }), {
       status: 200,
     });
   } catch (error: unknown) {
-    console.error('Error fetching stock price', error);
+    console.error('Error fetching stock', error);
 
     return new Response(
       JSON.stringify({

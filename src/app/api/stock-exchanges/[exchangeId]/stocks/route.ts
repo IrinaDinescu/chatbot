@@ -1,14 +1,11 @@
-import {
-  StockExchange,
-  StockExchangeCode,
-  StockExchangeData,
-} from '@/types/stocks';
+import { StockExchange, StockExchangeData } from '@/types/stocks';
 import { readStockData } from '@/utils/stocks';
 
-export async function GET(
-  request: Request,
-  { params }: { params: { exchangeId: StockExchangeCode } }
-) {
+type getParams = {
+  params: Promise<{ exchangeId: string }>;
+};
+
+export async function GET(request: Request, { params }: getParams) {
   try {
     const stockData: StockExchangeData = await readStockData();
 

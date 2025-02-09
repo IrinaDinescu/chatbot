@@ -1,12 +1,16 @@
 export enum StockExchangeName {
-  LSE = 'London Stock Exchange',
-  NSYE = 'New York Stock Exchange',
-  NASDAQ = 'Nasdaq',
+  'LSE' = 'London Stock Exchange',
+  'NSYE' = 'New York Stock Exchange',
+  'NASDAQ' = 'Nasdaq',
 }
 
 export type StockExchangeCode = keyof typeof StockExchangeName;
 
 export type StockExchangeMap = Record<StockExchangeCode, StockExchangeName>;
+
+export type StockName = Record<string, string>;
+
+export type StockCode = keyof StockName;
 
 export type Stock = {
   code: string;
