@@ -8,7 +8,11 @@ export enum Sender {
 export type BubbleMessage = {
   content: string;
   sender: Sender;
-  options?: any;
+  options?: option;
+};
+
+export type option = {
+  [key: string]: string;
 };
 
 export const BubbleMessage: React.FC<BubbleMessage> = ({
