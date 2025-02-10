@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# **Chatbot Project**
 
-## Getting Started
+## **How to Run the Project**
 
-First, run the development server:
+### **1. Clone the Repository**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```sh
+git clone git@github.com:IrinaDinescu/chatbot.git
+cd chatbot
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **2. Choose How You Want to Run the Project**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#### **a) Run with Docker Compose**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This method runs the project inside a Docker container.
 
-## Learn More
+1. Check if Docker and Docker Compose are installed:
 
-To learn more about Next.js, take a look at the following resources:
+   ```sh
+   docker --version
+   docker-compose --version
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Start the application with Docker Compose:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```sh
+   docker compose up
+   ```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### **b) Run in Development Mode**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This mode is best for local development with hot-reloading.
+
+1. Install dependencies:
+
+   ```sh
+   npm install
+   ```
+
+2. Start the application in dev mode:
+
+   ```sh
+   npm run dev
+   ```
+
+---
+
+#### **c) Run in Production Mode**
+
+This mode runs the app with Next.js optimizations.
+
+1. Install dependencies:
+
+   ```sh
+   npm install
+   ```
+
+2. Build the application:
+
+   ```sh
+   npm run build
+   ```
+
+3. Start the production server:
+
+   ```sh
+   npm start
+   ```
+
+---
+
+### **3. Access the Application**
+
+Once running, you can access the app at:
+
+- **Local:** [http://localhost:3000](http://localhost:3000)
+
+---
+
+### **4. Additional Notes**
+
+- Ensure you have Node.js installed if running the project locally.
+- If using Docker, remove any existing containers before restarting with:
+
+  ```sh
+  docker rm -f dirina_chatbot_container
+  ```
+
+- Stop the Docker container with:
+
+  ```sh
+  docker compose down
+  ```
+
+Enjoy! 🚀
+
+---
+
+![Chatbot Image](https://github.com/IrinaDinescu/chatbot/blob/main/assets/chatbot.png)
+
+# 📌 **NOTES**
+
+The file is read with the assumption that, in a stock exchange context, prices must always be up-to-date and should not be cached. If the file’s content were static, caching could have been used to prevent redundant reads. Instead, I’ve treated file reading as if retrieving real-time data from a database or an external service.
