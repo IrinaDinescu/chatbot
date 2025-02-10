@@ -1,0 +1,9 @@
+services:
+  next-app:
+    container_name: dirina_chatbot_container
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: always
